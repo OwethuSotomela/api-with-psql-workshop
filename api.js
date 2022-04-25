@@ -8,9 +8,21 @@ module.exports = function (app, db) {
 
 	app.get('/api/garments', async function (req, res) {
 
-		const { gender, season } = req.query;
-		let garments = [];
 		// add some sql queries that filter on gender & season
+
+		const { gender, season } = req.query;
+		
+		let garments = await db.many(`SELECT * FROM garment`);
+		if (season) {
+			garments = await db.many(`SELECT * FROM garment WHERE season = $1`, [season])
+		}
+		if (gender) {
+			garments = await db.many(`SELECT * FROM garment WHERE gender = $1`, [gender])
+		}
+		else
+			if (gender && season) {
+				garments = await db.many(`SELECT * FROM garment WHERE gender = $1 AND season = $2`, [gender, season])
+			}
 
 		res.json({
 			data: garments
@@ -89,7 +101,7 @@ module.exports = function (app, db) {
 	});
 
 	app.get('/api/garments/grouped', async function (req, res) {
-		const result = []		
+		const result = []
 		// use group by query with order by asc on count(*)
 		res.json({
 			data: result
@@ -110,7 +122,7 @@ module.exports = function (app, db) {
 			// console.log(err);
 			res.json({
 				status: 'success',
-				error : err.stack
+				error: err.stack
 			})
 		}
 	});
