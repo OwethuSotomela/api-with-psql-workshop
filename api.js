@@ -61,7 +61,7 @@ module.exports = function (app, db) {
 		try {
 			const { id } = req.params;
 			// get the garment from the database
-			const garment = null;
+			const garment = await db.one(`SELECT * FROM garment WHERE id = $1`, [id]);
 
 			res.json({
 				status: 'success',
@@ -77,7 +77,6 @@ module.exports = function (app, db) {
 		}
 	});
 
-
 	app.post('/api/garment/', async function (req, res) {
 
 		try {
@@ -85,9 +84,11 @@ module.exports = function (app, db) {
 			const { description, price, img, season, gender } = req.body;
 
 			// insert a new garment in the database
+			await db.none(`INSERT INTO garment( description, price, img, season, gender) VALUES ($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING`, [description, price, img, season, gender]);
 
 			res.json({
 				status: 'success',
+
 			});
 
 		} catch (err) {
@@ -100,31 +101,31 @@ module.exports = function (app, db) {
 	});
 
 	app.get('/api/garments/grouped', async function (req, res) {
-		const result = []
-		// use group by query with order by asc on count(*)
+		const result = await db.many(`SELECT COUNT(*), gender FROM garment GROUP BY gender ORDER BY COUNT ASC`);
+
 		res.json({
 			data: result
 		})
 	});
 
 
-	app.delete('/api/garments', async function (req, res) {
+	// app.delete('/api/garments', async function (req, res) {
 
-		try {
-			const { gender } = req.query;
-			// delete the garments with the specified gender
+	// 	try {
+	// 		const { gender } = req.query;
+	// 		// delete the garments with the specified gender
 
-			res.json({
-				status: 'success'
-			})
-		} catch (err) {
-			// console.log(err);
-			res.json({
-				status: 'success',
-				error: err.stack
-			})
-		}
-	});
+	// 		res.json({
+	// 			status: 'success'
+	// 		})
+	// 	} catch (err) {
+	// 		// console.log(err);
+	// 		res.json({
+	// 			status: 'success',
+	// 			error: err.stack
+	// 		})
+	// 	}
+	// });
 
 
 }

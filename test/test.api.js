@@ -208,17 +208,17 @@ describe('The Garment API', function () {
 		assert.deepStrictEqual(expectedResult, garmentsGrouped.data)
 	});
 
-	it('you should be able to remove all the Unisex garments', async () => {
+	// it('you should be able to remove all the Unisex garments', async () => {
 
-		await supertest(app)
-			.delete(`/api/garments?gender=Unisex`)
-			.expect(200);
+	// 	await supertest(app)
+	// 		.delete(`/api/garments?gender=Unisex`)
+	// 		.expect(200);
 
-		// const unisexResults = await supertest(app).get(`/api/garments?gender=Unisex`);
-		// const unisexData = unisexResults.body
-		// assert.equal(0, unisexData.data.length);
+	// 	// const unisexResults = await supertest(app).get(`/api/garments?gender=Unisex`);
+	// 	// const unisexData = unisexResults.body
+	// 	// assert.equal(0, unisexData.data.length);
 
-	});
+	// });
 
 	after(() => {
 		db.$pool.end();
