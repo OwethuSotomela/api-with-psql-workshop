@@ -1,5 +1,7 @@
 # Build an API using PosgreSQL and pg-promise
 
+[![Build Status](https://app.travis-ci.com/OwethuSotomela/psql-refresher-workshop.svg?branch=main)](https://app.travis-ci.com/OwethuSotomela/psql-refresher-workshop)
+
 This workshop builds on the [psql refresher workshop]() you should use SQL that you wrote in that workshop to create the API endpoints needed to make the Unit Tests pass. 
 
 > **The aim is** for you to use the SQL you created in that workshop to create a ExpressJS API.
