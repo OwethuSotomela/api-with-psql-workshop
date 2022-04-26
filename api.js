@@ -84,7 +84,15 @@ module.exports = function (app, db) {
 			const { description, price, img, season, gender } = req.body;
 
 			// insert a new garment in the database
-			await db.none(`INSERT INTO garment( description, price, img, season, gender) VALUES ($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING`, [description, price, img, season, gender]);
+			// await db.none(`INSERT INTO garment( description, price, img, season, gender) VALUES ($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING`, [description, price, img, season, gender]);
+
+
+		await db.none(`insert into garment(description, img, season, gender, price) values ('Yellow Shorts', 'mens-128x128-455127.png', 'Summer', 'Male', '199.99')`)
+		await db.none(`insert into garment(description, img, season, gender, price) values ('Lime Vest', 'mens-128x128-455128.png', 'Summer', 'Male', '69.99')`)
+		
+		await db.none(`insert into garment(description, img, season, gender, price) values ('Orange Dress', 'tunic-128x128-455137.png', 'Summer', 'Female', '399.99')`)
+		await db.none(`insert into garment(description, img, season, gender, price) values ('Blazer', 'womans-128x128-455136.png', 'All Seasons', 'Female', '399.99')`)
+		await db.none(`insert into garment(description, img, season, gender, price) values ('Golf t-shirt(Red)', 'womans-128x128-455139.png', 'All Seasons', 'Female', '79.24')`)
 
 			res.json({
 				status: 'success',
