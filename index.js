@@ -11,12 +11,21 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static("public")) 
+
+// app.engine('html', require('ejs').renderFile);
+// app.set('view engine', 'html');
 
 const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/travis_ci_test';
 const pgp = PgPromise({});
 const db = pgp(DATABASE_URL);
 
 API(app, db);
+
+
+app.get('/', function(req, res){
+    res.render('index.html')
+})
 
 const PORT = process.env.PORT || 40011;
 app.listen(PORT, function () {
