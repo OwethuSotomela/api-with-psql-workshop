@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" x-data="users">
         <h1>Missy Tee - clothing store</h1>
         <!-- start here  -->
         <div class="login">
@@ -47,8 +47,8 @@
             <label>
                 <input type="text" class="username" id="username" placeholder="Enter GitHub username" name="username">
             </label>
-            <input type="button" name="loginBtn" id="loginBtn" value="Login" class="loginBtn">
-            <input type="button" value="getToken" class="getToken">
+            <input type="button" @click="logMe()" name="loginBtn" id="loginBtn" value="Login" class="loginBtn">
+            <input type="button" @click="getToken()" value="getToken" class="getToken">
             <div class="displayToken"></div>
         </div>
         <!-- work here  -->
