@@ -3,6 +3,7 @@ const PgPromise = require("pg-promise")
 const express = require('express');
 const assert = require('assert');
 const fs = require('fs');
+const cors = require('cors');
 require('dotenv').config()
 
 const API = require('./api');
@@ -11,20 +12,42 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static("public")) 
+app.use(express.static("public"))
 
-// app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'html');
+app.use(cors());
 
-const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/travis_ci_test';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/garment_app';
 const pgp = PgPromise({});
 const db = pgp(DATABASE_URL);
 
 API(app, db);
 
 
-app.get('/', function(req, res){
+app.get('/', function (req, res) {
     res.render('index.html')
+})
+
+app.post('/api/login', function (req, res) {
+
+    const { username } = req.body;
+
+    console.log(username);
+
+    if (username !== 'OwethuSotomela')
+        return res.json({
+            success: false,
+            user: null,
+            access_token: null
+        });
+
+    return res.json({
+        success: true,
+        user: {
+            name: 'Owethu',
+            surname: 'Sotomela',
+        },
+        access_token: 'test_token'
+    });
 })
 
 const PORT = process.env.PORT || 40011;
