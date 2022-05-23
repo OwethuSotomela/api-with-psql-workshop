@@ -64,13 +64,16 @@
                         <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value=""> All
                     </label>
                     <label>
-                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Male"> Male
+                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Male">
+                        Male
                     </label>
                     <label>
-                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Female"> Female
+                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Female">
+                        Female
                     </label>
                     <label>
-                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Unisex"> Unisex
+                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Unisex">
+                        Unisex
                     </label>
                 </div>
                 <div class="seasons">
@@ -78,18 +81,22 @@
                         <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value=""> All
                     </label>
                     <label>
-                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value="Summer"> Summer
+                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value="Summer">
+                        Summer
                     </label>
                     <label>
-                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value="Winter"> Winter
+                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value="Winter">
+                        Winter
                     </label>
                     <label>
-                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value="All Seasons"> All seasons
+                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season"
+                            value="All Seasons"> All seasons
                     </label>
                 </div>
                 <div>
                     Filter by price range:
-                    <input type="range" x-model="" name="priceRange" max="1000" step="50" class="priceRange" value="0">
+                    <input type="range" @change="getMaxPrice()" x-model="maxPrice" name="priceRange" max="1000"
+                        step="50" class="priceRange" value="0">
                     R<span class="showPriceRange">0</span>.00
                 </div>
             </div>
@@ -144,14 +151,6 @@
                             <h2 x-text="garment.price"></h2>
                         </div>
                     </template>
-
-                    <!-- <template x-for="garment in garments" :key="garments.id">
-                        <div>
-                            <img x-bind:src="`/images/${garment.img}`" alt="Photos">
-                            <h3 x-text="garment.description"></h3>
-                            <h2 x-text="garment.price"></h2>
-                        </div>
-                    </template> -->
                 </div>
             </div>
         </div>

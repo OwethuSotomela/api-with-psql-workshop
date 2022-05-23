@@ -81,6 +81,19 @@ document.addEventListener("alpine:init", () => {
                     this.error(error.message)
                 }
             },
+            getMaxPrice(){
+                try{
+                    console.log(this.maxPrice)
+                    fetch(`/api/garments/price/${this.maxPrice}`)
+                    .then(filteredAmount => filteredAmount.json())
+                    .then(myData => {
+                        console.log(myData)
+                        this.garments = myData.data
+                    })
+                }catch{
+
+                }
+            }
         };
 
     });
