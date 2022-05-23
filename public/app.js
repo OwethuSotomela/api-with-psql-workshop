@@ -11,7 +11,6 @@ document.addEventListener("alpine:init", () => {
             garments: [],
 
             //  Methods 
-
             async login() {
                 try {
                     const login_req = await fetch('http://localhost:4009/api/login', {
@@ -51,9 +50,12 @@ document.addEventListener("alpine:init", () => {
                             'Content-Type': 'application/json'
                         }
                     });
+                    
                     const garments_res = await garments_req.json();
+                    // console.log({garments_res})
 
                     if (garments_res?.data) this.garments = garments_res.data;
+                    console.log(this.garments[0])
 
                 } catch (error) {
                     this.showAuthError(error.message);

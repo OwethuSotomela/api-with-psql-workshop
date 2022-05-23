@@ -43,12 +43,13 @@
         <div class="login">
             <div class="loginError" x-show="authErrorShow" x-text="authError"></div>
             <label>
-                <input type="text" x-model="username" class="username" id="username" placeholder="Enter GitHub username" name="username">
+                <input type="text" x-model="username" class="username" id="username" placeholder="Enter GitHub username"
+                    name="username">
             </label>
             <input type="button" @click="login()" name="loginBtn" id="loginBtn" value="Login" class="loginBtn">
             <div class="displayToken"></div>
         </div>
-        
+
         <!-- work here  -->
         <div class="missyTeeApp" :class="{'hidden': !isAuthenticated}">
 
@@ -132,9 +133,12 @@
             <div>
                 <h2>Garments</h2>
                 <div class="searchResults">
-                    <template x-for="garment in garments" >
-                        <h3 x-text="garment.description"></h3>
-                        <img x-bind:src="garment.img" alt="">
+                    <template x-for="garment in garments">
+                        <div>
+                            <h3 x-text="garment.description"></h3>
+                            <img x-bind:src="`/images/${garment.img}`" alt="Photos">
+                            <h2 x-text="garment.price"></h2>
+                        </div>
                     </template>
                 </div>
             </div>

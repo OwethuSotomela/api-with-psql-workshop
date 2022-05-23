@@ -10,6 +10,9 @@ const API = require('./api');
 const { default: axios } = require('axios');
 const app = express();
 
+// const garments = require("./garments.json");
+// console.log(garments)
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"))
@@ -22,7 +25,6 @@ const db = pgp(DATABASE_URL);
 
 API(app, db);
 
-
 app.get('/', function (req, res) {
     res.render('index.html')
 })
@@ -30,8 +32,6 @@ app.get('/', function (req, res) {
 app.post('/api/login', function (req, res) {
 
     const { username } = req.body;
-
-    console.log(username);
 
     if (username !== 'OwethuSotomela')
         return res.json({
