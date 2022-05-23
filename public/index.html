@@ -57,35 +57,35 @@
                 <h2>Filter</h2>
                 <div class="genders">
                     <label>
-                        <input type="radio" name="gender" value="All"> All
+                        <input type="radio" x-model="" name="gender" value="All"> All
                     </label>
                     <label>
-                        <input type="radio" name="gender" value="Male"> Male
+                        <input type="radio" x-model="" name="gender" value="Male"> Male
                     </label>
                     <label>
-                        <input type="radio" name="gender" value="Female"> Female
+                        <input type="radio" x-model="" name="gender" value="Female"> Female
                     </label>
                     <label>
-                        <input type="radio" name="gender" value="Unisex"> Unisex
+                        <input type="radio" x-model="" name="gender" value="Unisex"> Unisex
                     </label>
                 </div>
                 <div class="seasons">
                     <label>
-                        <input type="radio" name="season" value="All"> All
+                        <input type="radio" x-model="" name="season" value="All"> All
                     </label>
                     <label>
-                        <input type="radio" name="season" value="Summer"> Summer
+                        <input type="radio" x-model="" name="season" value="Summer"> Summer
                     </label>
                     <label>
-                        <input type="radio" name="season" value="Winter"> Winter
+                        <input type="radio" x-model="" name="season" value="Winter"> Winter
                     </label>
                     <label>
-                        <input type="radio" name="season" value="All Seasons"> All seasons
+                        <input type="radio" x-model="" name="season" value="All Seasons"> All seasons
                     </label>
                 </div>
                 <div>
                     Filter by price range:
-                    <input type="range" name="priceRange" max="1000" step="50" class="priceRange" value="0">
+                    <input type="range" x-model="" name="priceRange" max="1000" step="50" class="priceRange" value="0">
                     R<span class="showPriceRange">0</span>.00
                 </div>
             </div>
@@ -132,14 +132,22 @@
             </div>
             <div>
                 <h2>Garments</h2>
-                <div class="searchResults">
+                <div class="garments">
                     <template x-for="garment in garments">
-                        <div>
-                            <h3 x-text="garment.description"></h3>
+                        <div class="garment">
                             <img x-bind:src="`/images/${garment.img}`" alt="Photos">
+                            <h3 x-text="garment.description"></h3>
                             <h2 x-text="garment.price"></h2>
                         </div>
                     </template>
+
+                    <!-- <template x-for="garment in garments" :key="garments.id">
+                        <div>
+                            <img x-bind:src="`/images/${garment.img}`" alt="Photos">
+                            <h3 x-text="garment.description"></h3>
+                            <h2 x-text="garment.price"></h2>
+                        </div>
+                    </template> -->
                 </div>
             </div>
         </div>

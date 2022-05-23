@@ -1,6 +1,7 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("users", () => {
         return {
+
             // State 
             open: false,
             username: null,
@@ -8,7 +9,13 @@ document.addEventListener("alpine:init", () => {
             user: null,
             authError: null,
             authErrorShow: false,
-            garments: [],
+            garments: [
+                {
+                    // gender: '',
+                    // season: '',
+                    // price: ''
+                }
+            ],
 
             //  Methods 
             async login() {
@@ -50,19 +57,40 @@ document.addEventListener("alpine:init", () => {
                             'Content-Type': 'application/json'
                         }
                     });
-                    
+
                     const garments_res = await garments_req.json();
-                    // console.log({garments_res})
 
                     if (garments_res?.data) this.garments = garments_res.data;
-                    console.log(this.garments[0])
+                    // console.log(this.garments[0])
 
                 } catch (error) {
                     this.showAuthError(error.message);
                 }
 
-            }
+            },
+            async filterData() {
+                try {
+                    const filter = await fetch(`/api/garments?gender=${genderFilter}&season=${seasonFilter}`)
+                    // method: POST
+                    console.log(filter)
+                        .then(function (result) {
+                            console.log(result)
+                        })
+                } catch {
+                    this.showAuthError(error.message)
+                }
+            },
         };
+
     });
 });
 
+// function filterData() {
+// 	axios
+// 		.get(`/api/garments?gender=${genderFilter}&season=${seasonFilter}`)
+// 		.then(function (result) {
+// 			searchResultsElem.innerHTML = garmentsTemplate({
+// 				garments: result.data.garments
+// 			})
+// 		});
+// }
