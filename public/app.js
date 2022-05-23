@@ -1,15 +1,7 @@
 document.addEventListener("alpine:init", () => {
-
-    /**
-     * USERS COMPONENTS
-     */
-
     Alpine.data("users", () => {
         return {
-
-            /**
-             * State
-             */
+            // State 
             open: false,
             username: null,
             isAuthenticated: false,
@@ -18,12 +10,11 @@ document.addEventListener("alpine:init", () => {
             authErrorShow: false,
             garments: [],
 
-            /**
-             * Methods
-             */
+            //  Methods 
+
             async login() {
                 try {
-                    const login_req = await fetch('http://localhost:40011/api/login', {
+                    const login_req = await fetch('http://localhost:4009/api/login', {
                         method: 'POST',
                         body: JSON.stringify({ username: this.username }),
                         headers: {
@@ -55,7 +46,7 @@ document.addEventListener("alpine:init", () => {
             async getAllGarments() {
 
                 try {
-                    const garments_req = await fetch('http://localhost:40011/api/garments', {
+                    const garments_req = await fetch('http://localhost:4009/api/garments', {
                         headers: {
                             'Content-Type': 'application/json'
                         }

@@ -50,7 +50,7 @@ app.post('/api/login', function (req, res) {
     });
 })
 
-const PORT = process.env.PORT || 40011;
+const PORT = process.env.PORT || 4009;
 app.listen(PORT, function () {
     console.log(`App started on port ${PORT}`);
 });
