@@ -51,7 +51,7 @@
         </div>
 
         <div x-show="isAuthenticated">
-            <button>Logout</button>
+            <button class="logoutBtn">Logout</button>
         </div>
 
         <!-- work here  -->
@@ -61,7 +61,7 @@
                 <h2>Filter</h2>
                 <div class="genders">
                     <label>
-                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="All"> All
+                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value=""> All
                     </label>
                     <label>
                         <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Male"> Male
@@ -75,16 +75,16 @@
                 </div>
                 <div class="seasons">
                     <label>
-                        <input type="radio" x-model="" name="season" value="All"> All
+                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value=""> All
                     </label>
                     <label>
-                        <input type="radio" x-model="" name="season" value="Summer"> Summer
+                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value="Summer"> Summer
                     </label>
                     <label>
-                        <input type="radio" x-model="" name="season" value="Winter"> Winter
+                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value="Winter"> Winter
                     </label>
                     <label>
-                        <input type="radio" x-model="" name="season" value="All Seasons"> All seasons
+                        <input @change="filterData()" type="radio" x-model="seasonFilter" name="season" value="All Seasons"> All seasons
                     </label>
                 </div>
                 <div>

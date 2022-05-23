@@ -68,6 +68,16 @@ body {
     display: inline-block;
     margin-top: 5vh;
   }
+  .logoutBtn{
+    background-color: #17252A;
+    color: white;
+    padding: 9px 15px;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5vh;
+  }
   
   .username {
     height: 30px;

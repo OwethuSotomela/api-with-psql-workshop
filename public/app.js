@@ -60,7 +60,6 @@ document.addEventListener("alpine:init", () => {
                     const garments_res = await garments_req.json();
 
                     if (garments_res?.data) this.garments = garments_res.data;
-                    // console.log(this.garments[0])
 
                 } catch (error) {
                     this.showAuthError(error.message);
@@ -69,7 +68,7 @@ document.addEventListener("alpine:init", () => {
             },
             filterData() {
                 try {
-                    console.log(this.genderFilter);
+                    console.log(this.genderFilçer, this.seasonFilter)
                     fetch(`/api/garments?gender=${this.genderFilter}&season=${this.seasonFilter}`)
                         .then(filtered => filtered.json())
                         .then(myData => {
@@ -86,13 +85,3 @@ document.addEventListener("alpine:init", () => {
 
     });
 });
-
-// function filterData() {
-// 	axios
-// 		.get(`/api/garments?gender=${genderFilter}&season=${seasonFilter}`)
-// 		.then(function (result) {
-// 			searchResultsElem.innerHTML = garmentsTemplate({
-// 				garments: result.data.garments
-// 			})
-// 		});
-// }
