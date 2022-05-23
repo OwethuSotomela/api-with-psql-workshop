@@ -10,9 +10,6 @@ const API = require('./api');
 const { default: axios } = require('axios');
 const app = express();
 
-// const garments = require("./garments.json");
-// console.log(garments)
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"))

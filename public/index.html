@@ -40,7 +40,7 @@
         <h1>Missy Tee - clothing store</h1>
         <!-- start here  -->
 
-        <div class="login">
+        <div x-show="!isAuthenticated" class="login">
             <div class="loginError" x-show="authErrorShow" x-text="authError"></div>
             <label>
                 <input type="text" x-model="username" class="username" id="username" placeholder="Enter GitHub username"
@@ -50,6 +50,10 @@
             <div class="displayToken"></div>
         </div>
 
+        <div x-show="isAuthenticated">
+            <button>Logout</button>
+        </div>
+
         <!-- work here  -->
         <div class="missyTeeApp" :class="{'hidden': !isAuthenticated}">
 
@@ -57,16 +61,16 @@
                 <h2>Filter</h2>
                 <div class="genders">
                     <label>
-                        <input type="radio" x-model="" name="gender" value="All"> All
+                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="All"> All
                     </label>
                     <label>
-                        <input type="radio" x-model="" name="gender" value="Male"> Male
+                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Male"> Male
                     </label>
                     <label>
-                        <input type="radio" x-model="" name="gender" value="Female"> Female
+                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Female"> Female
                     </label>
                     <label>
-                        <input type="radio" x-model="" name="gender" value="Unisex"> Unisex
+                        <input @change="filterData()" type="radio" x-model="genderFilter" name="gender" value="Unisex"> Unisex
                     </label>
                 </div>
                 <div class="seasons">
@@ -131,7 +135,7 @@
                 </div>
             </div>
             <div>
-                <h2>Garments</h2>
+                <h2>Garments <span x-text="garments.length"></span> </h2>
                 <div class="garments">
                     <template x-for="garment in garments">
                         <div class="garment">

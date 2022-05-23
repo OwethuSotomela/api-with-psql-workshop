@@ -9,13 +9,12 @@ document.addEventListener("alpine:init", () => {
             user: null,
             authError: null,
             authErrorShow: false,
-            garments: [
-                {
-                    // gender: '',
-                    // season: '',
-                    // price: ''
-                }
-            ],
+            error: null,
+            userSelection: null,
+            genderFilter: '',
+            seasonFilter: '',
+            maxPrice: 0,
+            garments: [],
 
             //  Methods 
             async login() {
@@ -68,16 +67,19 @@ document.addEventListener("alpine:init", () => {
                 }
 
             },
-            async filterData() {
+            filterData() {
                 try {
-                    const filter = await fetch(`/api/garments?gender=${genderFilter}&season=${seasonFilter}`)
-                    // method: POST
-                    console.log(filter)
-                        .then(function (result) {
-                            console.log(result)
+                    console.log(this.genderFilter);
+                    fetch(`/api/garments?gender=${this.genderFilter}&season=${this.seasonFilter}`)
+                        .then(filtered => filtered.json())
+                        .then(myData => {
+                            console.log(myData);
+                            this.garments = myData.data
                         })
+                        .catch(error =>  new Error(error.message))
+
                 } catch {
-                    this.showAuthError(error.message)
+                    this.error(error.message)
                 }
             },
         };

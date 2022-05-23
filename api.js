@@ -22,6 +22,8 @@ module.exports = function (app, db) {
 			garments = await db.many(`SELECT * FROM garment WHERE gender = $1 AND season = $2`, [gender, season])
 		}
 
+		console.log(garments);
+
 		res.json({
 			data: garments
 		})
