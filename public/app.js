@@ -17,11 +17,11 @@ document.addEventListener("alpine:init", () => {
 
             // let me see 
             item: ({
-                'description': '',
-                'img': '',
-                'season': '',
-                'gender': '',
-                'price': 0.00
+                description: '',
+                img: '',
+                season: '',
+                gender: '',
+                price: 0.00,
             }),
             // end 
 
@@ -79,7 +79,6 @@ document.addEventListener("alpine:init", () => {
             },
             filterData() {
                 try {
-                    console.log(this.genderFilçer, this.seasonFilter)
                     fetch(`/api/garments?gender=${this.genderFilter}&season=${this.seasonFilter}`)
                         .then(filtered => filtered.json())
                         .then(myData => {
@@ -108,18 +107,13 @@ document.addEventListener("alpine:init", () => {
                 }
             },
             addGarment() {
+                try {
+                    const myItems = this.item
+                    axios
+                        .post('/api/garment', myItems)
+                } catch {
 
-                const myItems = this.item
-                console.log(myItems)
-                console.log('/api/garments/', myItems)
-                post('/api/garments/', myItems)
-                    .then(stuff => stuff.json())
-                    .then(myData => {
-                        console.log(myData)
-                        this.garments.push({
-                            myItems
-                        })
-                    })
+                }
             }
         };
 

@@ -79,7 +79,7 @@ module.exports = function (app, db) {
 		}
 	});
 
-	app.post('/api/garment/', async function (req, res) {
+	app.post('/api/garment', async function (req, res) {
 
 		try {
 
