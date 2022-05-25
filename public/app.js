@@ -14,6 +14,17 @@ document.addEventListener("alpine:init", () => {
             genderFilter: '',
             seasonFilter: '',
             maxPrice: 0,
+
+            // let me see 
+            item: ({
+                'description': '',
+                'img': '',
+                'season': '',
+                'gender': '',
+                'price': 0.00
+            }),
+            // end 
+
             garments: [],
 
             //  Methods 
@@ -95,6 +106,19 @@ document.addEventListener("alpine:init", () => {
                 } catch {
                     this.error(error.message)
                 }
+            },
+            addGarment() {
+
+                const myItems = this.item
+                console.log(myItems)
+                post('/api/garments/', myItems)
+                    .then(stuff => stuff.json())
+                    .then(myData => {
+                        console.log(myData)
+                        this.garments.push({
+                            myItems
+                        })
+                    })
             }
         };
 

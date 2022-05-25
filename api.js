@@ -124,6 +124,7 @@ module.exports = function (app, db) {
 		}
 	})
 
+	// app.post('/api/garments/')
 	// app.delete('/api/garments', async function (req, res) {
 
 	// 	try {
