@@ -75,24 +75,25 @@ document.addEventListener("alpine:init", () => {
                             console.log(myData);
                             this.garments = myData.data
                         })
-                        .catch(error =>  new Error(error.message))
+                        .catch(error => new Error(error.message))
 
                 } catch {
                     this.error(error.message)
                 }
             },
-            getMaxPrice(){
-                try{
+            getMaxPrice() {
+                try {
                     console.log(this.maxPrice)
                     console.log(`/api/garments/${this.maxPrice}`)
                     fetch(`/api/garments/${this.maxPrice}`)
-                    .then(filteredAmount => filteredAmount.json())
-                    .then(myData => {
-                        console.log(myData)
-                        this.garments = myData.data
-                    })
-                }catch{
-
+                        .then(filteredAmount => filteredAmount.json())
+                        .then(myData => {
+                            console.log(myData)
+                            this.garments = myData.data
+                        })
+                        .catch(error => new Error(error.message))
+                } catch {
+                    this.error(error.message)
                 }
             }
         };
