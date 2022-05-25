@@ -16,7 +16,8 @@ app.use(express.static("public"))
 
 app.use(cors());
 
-const DATABASE_URL = process.env.DATABASE_URL || 'postgres:zjoiviosspyfav:92d5d6b575166beeca50b783286cceec5efc9efe66027610703e9656fe6716c4@ec2-18-210-64-223.compute-1.amazonaws.com:5432/d6rc1dljlgfk13';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/garment_app';
+
 const pgp = PgPromise({});
 const db = pgp(DATABASE_URL);
 
