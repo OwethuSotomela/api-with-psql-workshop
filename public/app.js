@@ -111,6 +111,7 @@ document.addEventListener("alpine:init", () => {
 
                 const myItems = this.item
                 console.log(myItems)
+                console.log('/api/garments/', myItems)
                 post('/api/garments/', myItems)
                     .then(stuff => stuff.json())
                     .then(myData => {
