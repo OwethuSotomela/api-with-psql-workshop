@@ -110,6 +110,19 @@ module.exports = function (app, db) {
 		})
 	});
 
+	app.get('/api/garments/:price', async function(req, res){
+		try{
+			const {price} = req.params
+			const result = await db.manyOrNone(`SELECT * FROM garment WHERE price <= $1`, [price])
+			res.json({
+				data: result
+			})
+		}catch{
+			res.json({
+				status: 'error'
+			})
+		}
+	})
 
 	// app.delete('/api/garments', async function (req, res) {
 

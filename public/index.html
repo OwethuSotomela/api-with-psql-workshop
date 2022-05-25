@@ -97,7 +97,7 @@
                     Filter by price range:
                     <input type="range" @change="getMaxPrice()" x-model="maxPrice" name="priceRange" max="1000"
                         step="50" class="priceRange" value="0">
-                    R<span class="showPriceRange">0</span>.00
+                    R<span class="showPriceRange" x-text="maxPrice"></span>
                 </div>
             </div>
             <div class="message hidden">

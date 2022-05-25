@@ -84,7 +84,8 @@ document.addEventListener("alpine:init", () => {
             getMaxPrice(){
                 try{
                     console.log(this.maxPrice)
-                    fetch(`/api/garments/price/${this.maxPrice}`)
+                    console.log(`/api/garments/${this.maxPrice}`)
+                    fetch(`/api/garments/${this.maxPrice}`)
                     .then(filteredAmount => filteredAmount.json())
                     .then(myData => {
                         console.log(myData)
