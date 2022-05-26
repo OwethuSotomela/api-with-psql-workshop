@@ -128,7 +128,7 @@ document.addEventListener("alpine:init", () => {
                 }
             },
             logout() {
-                this.isAuthenticated = false
+                this.isAuthenticated = ! this.isAuthenticated
             }
         };
 
