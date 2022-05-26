@@ -107,7 +107,7 @@ document.addEventListener("alpine:init", () => {
                     this.error(error.message)
                 }
             },
-            addGarmentTab() {
+            addTab() {
                 console.log('Open?')
                 this.isOpen = true
                 return;
