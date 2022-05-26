@@ -16,17 +16,19 @@ app.use(express.static("public"))
 
 app.use(cors());
 
-// const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/garment_app';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/garment_app';
 const pgp = PgPromise({});
 // const db = pgp(DATABASE_URL);
 
 // Start here 
+
 // let ssl = null;
 // if (process.env.NODE_ENV === 'development') {
 //    ssl = {rejectUnauthorized: false};
 // }
+
 const config = {
-    connectionString: 'postgresql://owethusotomela:owethusotomela@localhost:5432/garment_app',
+    connectionString: DATABASE_URL,
     max: 30,
     ssl: { rejectUnauthorized: false }
 };
