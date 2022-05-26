@@ -11,15 +11,15 @@ module.exports = function (app, db) {
 		// add some sql queries that filter on gender & season
 
 		const { gender, season } = req.query;
-		let garments = await db.many(`SELECT * FROM garment`);
+		let garments = await db.manyOrNone(`SELECT * FROM garment`);
 		if (season) {
-			garments = await db.many(`SELECT * FROM garment WHERE season = $1`, [season])
+			garments = await db.manyOrNone(`SELECT * FROM garment WHERE season = $1`, [season])
 		}
 		if (gender) {
-			garments = await db.many(`SELECT * FROM garment WHERE gender = $1`, [gender])
+			garments = await db.manyOrNone(`SELECT * FROM garment WHERE gender = $1`, [gender])
 		}
 		if (gender && season) {
-			garments = await db.many(`SELECT * FROM garment WHERE gender = $1 AND season = $2`, [gender, season])
+			garments = await db.manyOrNone(`SELECT * FROM garment WHERE gender = $1 AND season = $2`, [gender, season])
 		}
 
 		console.log(garments);
