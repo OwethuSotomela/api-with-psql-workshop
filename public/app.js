@@ -11,6 +11,7 @@ document.addEventListener("alpine:init", () => {
             authErrorShow: false,
             error: null,
             userSelection: null,
+            isOpen: false,
             genderFilter: '',
             seasonFilter: '',
             maxPrice: 0,
@@ -106,6 +107,16 @@ document.addEventListener("alpine:init", () => {
                     this.error(error.message)
                 }
             },
+            addGarmentTab() {
+                console.log('Open?')
+                this.isOpen = true
+                return;
+            },
+            hideTab() {
+                console.log('hide?')
+                this.isOpen == false
+                return;
+            },
             addGarment() {
                 try {
                     const myItems = this.item
@@ -114,6 +125,9 @@ document.addEventListener("alpine:init", () => {
                 } catch {
 
                 }
+            },
+            logout() {
+                this.isAuthenticated
             }
         };
 

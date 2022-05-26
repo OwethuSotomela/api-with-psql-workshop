@@ -51,7 +51,7 @@
         </div>
 
         <div x-show="isAuthenticated">
-            <button class="logoutBtn">Logout</button>
+            <button @click="logout()" class="logoutBtn">Logout</button>
         </div>
 
         <!-- work here  -->
@@ -104,9 +104,10 @@
             </div>
             <div class="addGarment">
                 <div class="add button mt1 ">
-                    <a href="" @click="addGarment()">Add garmet </a>
+                    <button href="" class="addGarmentTabBtn" @click="addGarmentTab()">Add garmet </button>
                 </div>
-                <div class="add garment">
+                
+                <div class="add garment" :class="{'hidden': !isOpen}">
                     <h2>Add garment</h2>
                     <img src="/images/{{img}}" alt="">
                     <!-- <form action="/garment/" method="post" class="addGarmentForm" > -->
@@ -136,7 +137,7 @@
                     </div>
                     <div class="mt1">
                         <input type="button" @click="addGarment()" name="action" value="Add" class="addGarmentBtn">
-                        <input type="button" @click="" name="action" value="Hide" class="hideAddGarmetBtn">
+                        <input type="button" @click="hideTab()" name="action" value="Hide" class="hideAddGarmetBtn">
                     </div>
                     <!-- </form> -->
                 </div>
