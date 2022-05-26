@@ -122,8 +122,9 @@ document.addEventListener("alpine:init", () => {
                     const myItems = this.item
                     axios
                         .post('/api/garment', myItems)
+                        .catch(error => new Error(error.message))
                 } catch {
-
+                    this.error(error.message)
                 }
             },
             logout() {
