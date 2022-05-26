@@ -22,9 +22,8 @@ const pgp = PgPromise({});
 // Start here 
 
 const config = {
-    connectionString: DATABASE_URL,
-    
-    ssl: true
+    connectionString: DATABASE_URL,    
+    ssl:{ rejectUnauthorized : false}
 };
 const db = pgp(config);
 
