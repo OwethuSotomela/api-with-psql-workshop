@@ -114,7 +114,7 @@ document.addEventListener("alpine:init", () => {
             },
             hideTab() {
                 console.log('hide?')
-                this.isOpen == false
+                this.isOpen = ! this.isOpen
                 return;
             },
             addGarment() {
@@ -128,7 +128,7 @@ document.addEventListener("alpine:init", () => {
                 }
             },
             logout() {
-                this.isAuthenticated
+                this.isAuthenticated = false
             }
         };
 
