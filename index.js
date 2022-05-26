@@ -38,7 +38,7 @@ const db = pgp(config);
 
 API(app, db);
 
-app.get('/', function (req, res) {
+app.get('/api/garments', function (req, res) {
     res.render('index.html')
 })
 
