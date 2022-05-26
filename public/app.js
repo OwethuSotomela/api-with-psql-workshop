@@ -31,7 +31,7 @@ document.addEventListener("alpine:init", () => {
             //  Methods 
             async login() {
                 try {
-                    const login_req = await fetch('http://localhost:4009/api/login', {
+                    const login_req = await fetch('/api/login', {
                         method: 'POST',
                         body: JSON.stringify({ username: this.username }),
                         headers: {
@@ -63,7 +63,7 @@ document.addEventListener("alpine:init", () => {
             async getAllGarments() {
 
                 try {
-                    const garments_req = await fetch('http://localhost:4009/api/garments', {
+                    const garments_req = await fetch('/api/garments', {
                         headers: {
                             'Content-Type': 'application/json'
                         }
