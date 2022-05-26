@@ -16,14 +16,14 @@ app.use(express.static("public"))
 
 app.use(cors());
 
-const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/garment_app';
+// const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/garment_app';
 const pgp = PgPromise({});
 
 // Start here 
 
 const config = {
-    connectionString: DATABASE_URL,
-    max: 300,
+    connectionString: process.env.DATABASE_URL || 'postgresql://owethusotomela:owethusotomela@localhost:5432/garment_app',
+    
     ssl: process.env.DATABASE_URL ? true : false
 };
 const db = pgp(config);
