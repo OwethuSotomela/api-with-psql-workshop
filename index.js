@@ -23,7 +23,7 @@ const pgp = PgPromise({});
 
 const config = {
     connectionString: DATABASE_URL,
-    max: 30,
+    max: 300,
     ssl: process.env.DATABASE_URL ? true : false
 };
 const db = pgp(config);
