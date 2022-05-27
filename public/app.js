@@ -1,6 +1,9 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("users", () => {
         return {
+            init(){
+                this.getAllGarments();
+            },
 
             // State 
             open: false,
@@ -122,9 +125,22 @@ document.addEventListener("alpine:init", () => {
                     const myItems = this.item
                     axios
                         .post('/api/garment', myItems)
+                        .then(()=>this.getAllGarments())
                         .catch(error => new Error(error.message))
+                
                 } catch {
                     this.error(error.message)
+                }
+            },
+            getMyGarments(){
+                try{
+                    fetch('/api/gaments')
+                    .then(allItems => allItems.json())
+                    .then(myData => {
+                        this.garments = myData.data
+                    })
+                }catch{
+
                 }
             },
             logout() {
