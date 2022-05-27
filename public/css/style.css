@@ -60,6 +60,7 @@ img {
 
 .loginBtn {
   background-color: #17252A;
+  border-radius: 12px;
   color: white;
   padding: 9px 15px;
   text-align: center;
@@ -71,6 +72,7 @@ img {
 
 .logoutBtn {
   background-color: #17252A;
+  border-radius: 12px;
   color: white;
   padding: 9px 15px;
   text-align: center;
@@ -105,6 +107,7 @@ img {
 
 .addGarmentTabBtn {
   background-color: #17252A;
+  border-radius: 12px;
   color: white;
   padding: 9px 15px;
   text-align: center;
@@ -120,8 +123,9 @@ a:active {
 }
 
 .addGarmentBtn {
-  /* background-color: #BADFE7; */
   background-color: #17252A;
+  border-radius: 12px;
+  border-radius: 12px;
   color: white;
   padding: 9px 15px;
   text-align: center;
@@ -132,8 +136,8 @@ a:active {
 }
 
 .hideAddGarmetBtn {
-  /* background-color: #BADFE7; */
   background-color: #17252A;
+  border-radius: 12px;
   color: white;
   padding: 9px 15px;
   text-align: center;
@@ -156,12 +160,6 @@ a:active {
   z-index: 1;
   left: 50%;
   bottom: 30px;
-}
-
-#snackbar.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 @-webkit-keyframes fadein {
