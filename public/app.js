@@ -18,6 +18,13 @@ document.addEventListener("alpine:init", () => {
             genderFilter: '',
             seasonFilter: '',
             maxPrice: 0,
+            // parseJwt: (token) => {
+            //     try {
+            //         return JSON.parse(atob(token.split('.')[1]));
+            //     } catch (e) {
+            //         return null;
+            //     }
+            // },
 
             // let me see 
             item: ({
@@ -57,6 +64,31 @@ document.addEventListener("alpine:init", () => {
 
                 } catch (error) {
                     this.showAuthError(error.message);
+                }
+            },
+            getToken() {
+                try {
+                    const username = this.username;
+                    axios
+                        .post('/api/login', { username })
+                        .then((myData) => {
+                            console.log(myData.data)
+                            var { access_token } = myData.data;
+                            this.parseJwt()
+                            console.log(JSON.stringify(this.parseJwt(access_token)))
+                            alert(JSON.stringify(this.parseJwt(access_token)))
+                            this.garments = JSON.stringify(this.parseJwt(access_token));
+                            console.log(access_token);
+                        })
+                } catch {
+
+                }
+            },
+            parseJwt: (access_token) => {
+                try {
+                    return JSON.parse(atob(access_token.split('.')[1]));
+                } catch (e) {
+                    return null;
                 }
             },
             showAuthError(message) {
