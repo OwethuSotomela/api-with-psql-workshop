@@ -148,12 +148,12 @@ document.addEventListener("alpine:init", () => {
             addGarment() {
                 try {
                     const myItems = this.item
-                    console.log(myItems)
+
                     if (
-                        this.item.description == "" /
-                        this.item.gender == "" /
-                        this.item.img == "" /
-                        this.item.price == 0 /
+                        this.item.description == "" ||
+                        this.item.gender == "" ||
+                        this.item.img == "" ||
+                        this.item.price == 0 ||
                         this.item.season == ""
                     ) {
                         alert('Enter a garment')
@@ -162,10 +162,12 @@ document.addEventListener("alpine:init", () => {
                             .post('/api/garment', myItems)
                             .then(() => this.getAllGarments())
                             .catch(error => new Error(error.message))
+                        console.log('Do you come here?')
+                        alert('Do you reach this side')
                     }
 
                 } catch {
-                    this.error(error.message)
+                    // this.error(error.message)
                 }
             },
             getMyGarments() {
