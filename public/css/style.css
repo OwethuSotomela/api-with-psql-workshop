@@ -4,7 +4,8 @@ body {
 }
 .myH{
   border: 1px solid green;
-  /* padding-left: 15rem; */
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 .container {
   margin: auto;

@@ -18,13 +18,6 @@ document.addEventListener("alpine:init", () => {
             genderFilter: '',
             seasonFilter: '',
             maxPrice: 0,
-            // parseJwt: (token) => {
-            //     try {
-            //         return JSON.parse(atob(token.split('.')[1]));
-            //     } catch (e) {
-            //         return null;
-            //     }
-            // },
 
             // let me see 
             item: ({
@@ -155,10 +148,21 @@ document.addEventListener("alpine:init", () => {
             addGarment() {
                 try {
                     const myItems = this.item
-                    axios
-                        .post('/api/garment', myItems)
-                        .then(() => this.getAllGarments())
-                        .catch(error => new Error(error.message))
+                    console.log(myItems)
+                    if (
+                        this.item.description == "" /
+                        this.item.gender == "" /
+                        this.item.img == "" /
+                        this.item.price == 0 /
+                        this.item.season == ""
+                    ) {
+                        alert('Enter a garment')
+                    } else {
+                        axios
+                            .post('/api/garment', myItems)
+                            .then(() => this.getAllGarments())
+                            .catch(error => new Error(error.message))
+                    }
 
                 } catch {
                     this.error(error.message)
