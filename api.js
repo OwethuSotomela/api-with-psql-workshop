@@ -130,8 +130,11 @@ module.exports = function (app, db) {
 	// 		const { gender } = req.query;
 	// 		// delete the garments with the specified gender
 
+	// 		// const result = await db.one(`DELETE FROM garment WHERE gender = $1`, [gender])
+
 	// 		res.json({
-	// 			status: 'success'
+	// 			status: 'success',
+	// 			data: result
 	// 		})
 	// 	} catch (err) {
 	// 		// console.log(err);

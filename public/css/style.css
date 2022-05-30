@@ -2,7 +2,10 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: #C2EDCE;
 }
-
+.myH{
+  border: 1px solid green;
+  /* padding-left: 15rem; */
+}
 .container {
   margin: auto;
   width: 60%;

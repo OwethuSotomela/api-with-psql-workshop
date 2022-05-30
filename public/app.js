@@ -1,7 +1,7 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("users", () => {
         return {
-            init(){
+            init() {
                 this.getAllGarments();
             },
 
@@ -117,7 +117,7 @@ document.addEventListener("alpine:init", () => {
             },
             hideTab() {
                 console.log('hide?')
-                this.isOpen = ! this.isOpen
+                this.isOpen = !this.isOpen
                 return;
             },
             addGarment() {
@@ -125,27 +125,44 @@ document.addEventListener("alpine:init", () => {
                     const myItems = this.item
                     axios
                         .post('/api/garment', myItems)
-                        .then(()=>this.getAllGarments())
+                        .then(() => this.getAllGarments())
                         .catch(error => new Error(error.message))
-                
+
                 } catch {
                     this.error(error.message)
                 }
             },
-            getMyGarments(){
-                try{
+            getMyGarments() {
+                try {
                     fetch('/api/gaments')
-                    .then(allItems => allItems.json())
-                    .then(myData => {
-                        this.garments = myData.data
-                    })
-                }catch{
+                        .then(allItems => allItems.json())
+                        .then(myData => {
+                            this.garments = myData.data
+                        })
+                } catch {
 
                 }
             },
+
+            // deleteGarments() {
+
+            //     const gender = this.genderFilter;
+            //     console.log(gender)
+            //     console.log('Hi Oz')
+            //     try {
+            //         axios
+            //             .delete('/api/garments', gender)
+            //             .then(() => this.getAllGarments())
+            //             .catch(error => new Error(error.message))
+
+            //     } catch {
+
+            //     }
+            // },
+
             logout() {
                 console.log('Bye?')
-                this.isAuthenticated = ! this.isAuthenticated
+                this.isAuthenticated = !this.isAuthenticated
             }
         };
 

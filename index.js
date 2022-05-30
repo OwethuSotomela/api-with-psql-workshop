@@ -2,6 +2,8 @@ const supertest = require('supertest');
 const PgPromise = require("pg-promise")
 const express = require('express');
 const assert = require('assert');
+
+const jwt = require("jsonwebtoken");
 const fs = require('fs');
 const cors = require('cors');
 require('dotenv').config()
@@ -27,7 +29,7 @@ const config = {
 
 // we normally only have a DATABAE_URL when we are on the Heroku server
 if (process.env.DATABASE_URL) {
-    config.ssl = { rejectUnauthorized : false};
+    config.ssl = { rejectUnauthorized: false };
 }
 
 const db = pgp(config);
@@ -51,14 +53,17 @@ app.post('/api/login', function (req, res) {
             access_token: null
         });
 
-    return res.json({
-        success: true,
-        user: {
-            name: 'Owethu',
-            surname: 'Sotomela',
-        },
-        access_token: 'test_token'
-    });
+    jwt.sign({ username }, 'secretkey', { expiresIn: '24h' }, (err, token) => {
+        return res.json({
+            success: true,
+            user: {
+                name: 'Owethu',
+                surname: 'Sotomela',
+            },
+            access_token: token
+        });
+    })
+
 })
 
 const PORT = process.env.PORT || 4009;

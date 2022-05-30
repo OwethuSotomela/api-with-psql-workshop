@@ -37,7 +37,9 @@
 
 <body>
     <div class="container" x-data="users">
-        <h1>Missy Tee - Clothing Store</h1>
+        <div class="myH">
+            <h1>Missy Tee - Clothing Store</h1>
+        </div>
         <!-- start here  -->
 
         <div x-show="!isAuthenticated" class="login">
@@ -106,7 +108,7 @@
                 <div class="add button mt1 ">
                     <button href="" class="addGarmentTabBtn" @click="addTab()">Add garmet </button>
                 </div>
-                
+
                 <div class="add garment" :class="{'hidden': !isOpen}">
                     <h2>Add garment</h2>
                     <img src="/images/{{img}}" alt="">
@@ -145,6 +147,7 @@
             <div>
                 <h2>Garments <span x-text="garments.length"></span> </h2>
                 <div class="garments">
+                    <!-- <button @click="deleteGarments()">Delete</button> -->
                     <template x-for="garment in garments">
                         <div class="garment">
                             <img x-bind:src="`/images/${garment.img}`" alt="Photos">
@@ -158,8 +161,6 @@
     </div>
 
     <script src="./app.js"></script>
-    <script src="./field-manager.js"></script>
-    <script src="./add-garments.js"></script>
 </body>
 
 </html>
