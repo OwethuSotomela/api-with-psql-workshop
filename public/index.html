@@ -153,7 +153,7 @@
                             <img x-bind:src="`/images/${garment.img}`" alt="Photos">
                             <h3 x-text="garment.description"></h3>
                             <h2 x-text="garment.price"></h2>
-                            <button @click="deleteGarments(garment)">x</button>
+                            <button @click="deleteGarments(garment)" class="deleteBtn">x</button>
                         </div>
                     </template>
                 </div>

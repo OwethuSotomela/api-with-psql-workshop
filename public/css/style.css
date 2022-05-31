@@ -177,6 +177,18 @@ input{
   display: inline-block;
   margin-top: 5vh;
 }
+.deleteBtn{
+  background-color: red;
+  color: white; 
+  border-radius: 12px;
+  padding: 9px 15px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5vh;
+  font-size: large;
+}
 #snackbar {
   visibility: hidden;
   min-width: 250px;
