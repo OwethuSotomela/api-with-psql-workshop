@@ -1,17 +1,41 @@
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: #C2EDCE;
+  background-color: #8CBDB9;
+
 }
-.myH{
-  border: 1px solid green;
-  padding-left: 5rem;
-  padding-right: 5rem;
+
+.login {
+  text-align: center;
 }
+
+h1 {
+  text-shadow: 2px 2px 5px white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-style: oblique;
+}
+
+.myH {
+  padding-top: 5vh;
+  padding-bottom: 2vh;
+  padding-left: 3rem;
+}
+
 .container {
   margin: auto;
   width: 60%;
 }
-
+.missyTeeApp {
+  text-align: center;
+}
+.filter{
+  border-radius: 12px;
+  border: 2px solid #2D3E4E;
+  background-color: #F6F6F2;
+  padding-bottom: 2em;
+  padding-top: 1em;
+  margin-top: 1em;
+}
 img {
   display: inline-block;
 }
@@ -29,7 +53,7 @@ img {
 .garment {
   flex: 1;
   background-color: #F6F6F2;
-  border: 2px solid #388087;
+  border: 2px solid #2D3E4E;
   padding: 1em;
   margin: 0.25em;
   border-radius: 0.5em;
@@ -43,7 +67,7 @@ img {
   color: red;
   font-weight: bold;
   font-size: 22px;
-  margin-top: 3px;
+  margin-top: 1em;
   margin-bottom: 1px;
 }
 
@@ -74,22 +98,11 @@ img {
   margin-top: 5vh;
 }
 
-.logoutBtn {
-  background-color: #17252A;
-  border-radius: 12px;
-  color: white;
-  padding: 9px 15px;
-  text-align: center;
-  align-items: center;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 5vh;
-}
-
 .username {
   height: 30px;
   width: 30vh;
   text-align: center;
+  border: 2px solid #2D3E4E;
 }
 
 
@@ -109,23 +122,13 @@ img {
   background-color: #6FB3B8;
 }
 
-.addGarmentTabBtn {
-  background-color: #17252A;
-  border-radius: 12px;
-  color: white;
-  padding: 9px 15px;
-  text-align: center;
-  align-items: center;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 5vh;
-}
-
 a:hover,
 a:active {
   background-color: #17252A;
 }
-
+input{
+  border: 1px solid blue;
+}
 .addGarmentBtn {
   background-color: #17252A;
   border-radius: 12px;
@@ -151,6 +154,29 @@ a:active {
   margin-top: 5vh;
 }
 
+.addGarmentTabBtn {
+  background-color: #17252A;
+  border-radius: 12px;
+  color: white;
+  padding: 9px 15px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5vh;
+  margin-bottom: 3em;
+}
+.logoutBtn {
+  background-color: #17252A;
+  border-radius: 12px;
+  color: white;
+  padding: 9px 15px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5vh;
+}
 #snackbar {
   visibility: hidden;
   min-width: 250px;

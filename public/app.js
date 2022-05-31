@@ -19,6 +19,10 @@ document.addEventListener("alpine:init", () => {
             seasonFilter: '',
             maxPrice: 0,
 
+            // tue 
+            myGarm: '',
+            // end 
+
             // let me see 
             item: ({
                 description: '',
@@ -148,7 +152,6 @@ document.addEventListener("alpine:init", () => {
             addGarment() {
                 try {
                     const myItems = this.item
-
                     if (
                         this.item.description == "" ||
                         this.item.gender == "" ||
@@ -157,12 +160,12 @@ document.addEventListener("alpine:init", () => {
                         this.item.season == ""
                     ) {
                         alert('Enter a garment')
+                        // this.error('Add something')
                     } else {
                         axios
                             .post('/api/garment', myItems)
                             .then(() => this.getAllGarments())
                             .catch(error => new Error(error.message))
-                        console.log('Do you come here?')
                         alert('Do you reach this side')
                     }
 
@@ -182,21 +185,17 @@ document.addEventListener("alpine:init", () => {
                 }
             },
 
-            // deleteGarments() {
+            deleteGarments(myGarm) {
+                try {
+                    axios
+                        .delete(`/api/garment/${myGarm.id}`)
+                        .then(() => this.getAllGarments())
+                        .catch(error => new Error(error.message))
 
-            //     const gender = this.genderFilter;
-            //     console.log(gender)
-            //     console.log('Hi Oz')
-            //     try {
-            //         axios
-            //             .delete('/api/garments', gender)
-            //             .then(() => this.getAllGarments())
-            //             .catch(error => new Error(error.message))
+                } catch {
 
-            //     } catch {
-
-            //     }
-            // },
+                }
+            },
 
             logout() {
                 console.log('Bye?')

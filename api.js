@@ -110,39 +110,38 @@ module.exports = function (app, db) {
 		})
 	});
 
-	app.get('/api/garments/:price', async function(req, res){
-		try{
-			const {price} = req.params
+	app.get('/api/garments/:price', async function (req, res) {
+		try {
+			const { price } = req.params
 			const result = await db.manyOrNone(`SELECT * FROM garment WHERE price <= $1`, [price])
 			res.json({
 				data: result
 			})
-		}catch{
+		} catch {
 			res.json({
 				status: 'error'
 			})
 		}
 	})
 
-	// app.delete('/api/garments', async function (req, res) {
+	app.delete('/api/garment/:id', async function (req, res) {
 
-	// 	try {
-	// 		const { gender } = req.query;
-	// 		// delete the garments with the specified gender
+		try {
+			const { id } = req.params;
+			// delete the garments with the specified id
+			const result = await db.one(`DELETE FROM garment WHERE id = $1`, [id])
 
-	// 		// const result = await db.one(`DELETE FROM garment WHERE gender = $1`, [gender])
+			res.json({
+				status: 'success',
+				data: result
+			})
+		} catch (err) {
+			res.json({
+				status: 'success',
+				error: err.stack
+			})
+		}
 
-	// 		res.json({
-	// 			status: 'success',
-	// 			data: result
-	// 		})
-	// 	} catch (err) {
-	// 		// console.log(err);
-	// 		res.json({
-	// 			status: 'success',
-	// 			error: err.stack
-	// 		})
-	// 	}
-	// });
+	})
 
 }
