@@ -141,7 +141,6 @@ module.exports = function (app, db) {
 				error: err.stack
 			})
 		}
-
 	})
 
 }

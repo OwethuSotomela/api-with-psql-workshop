@@ -19,10 +19,6 @@ document.addEventListener("alpine:init", () => {
             seasonFilter: '',
             maxPrice: 0,
 
-            // tue 
-            myGarm: '',
-            // end 
-
             // let me see 
             item: ({
                 description: '',
@@ -184,7 +180,6 @@ document.addEventListener("alpine:init", () => {
 
                 }
             },
-
             deleteGarments(myGarm) {
                 try {
                     axios
