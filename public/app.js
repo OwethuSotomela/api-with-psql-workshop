@@ -19,6 +19,7 @@ document.addEventListener("alpine:init", () => {
             empty: 'Enter a garment to be added on the database',
             success: 'Garment successfully added',
             removed: 'Garment removed from the list',
+            token: null,
             // Here 
             userSelection: null,
             isOpen: false,
@@ -75,9 +76,9 @@ document.addEventListener("alpine:init", () => {
                             console.log(myData.data)
                             var { access_token } = myData.data;
                             this.parseJwt()
-                            console.log(JSON.stringify(this.parseJwt(access_token)))
-                            alert(JSON.stringify(this.parseJwt(access_token)))
-                            this.garments = JSON.stringify(this.parseJwt(access_token));
+                            this.token = JSON.stringify(this.parseJwt(access_token))
+                            
+                            // this.garments = JSON.stringify(this.parseJwt(access_token));
                             console.log(access_token);
                         })
                 } catch {
