@@ -18,6 +18,7 @@ document.addEventListener("alpine:init", () => {
             feedback: '',
             empty: 'Enter a garment to be added on the database',
             success: 'Garment successfully added',
+            removed: 'Garment removed from the list',
             // Here 
             userSelection: null,
             isOpen: false,
@@ -161,19 +162,15 @@ document.addEventListener("alpine:init", () => {
                         this.item.price == 0 ||
                         this.item.season == ""
                     ) {
-                        // alert('Enter a garment')
                         this.feedback = this.empty
-                        // this.error('Add something')
                     } else {
                         axios
                             .post('/api/garment', myItems)
                             .then(() => this.getAllGarments())
                             this.feedback = this.success
-                            // .catch(error => new Error(error.message))
                     }
 
                 } catch {
-                    // this.error(error.message)
                 }
             },
             getMyGarments() {
@@ -192,8 +189,7 @@ document.addEventListener("alpine:init", () => {
                     axios
                         .delete(`/api/garment/${myGarm.id}`)
                         .then(() => this.getAllGarments())
-                        .catch(error => new Error(error.message))
-
+                        this.feedback = this.removed
                 } catch {
 
                 }
