@@ -49,8 +49,8 @@
                     name="username">
             </label>
             <input type="button" @click="login()" name="loginBtn" id="loginBtn" value="Login" class="loginBtn">
-            <button @click="getToken()" class="logoutBtn">getToken</button>
-            <div class="displayToken" x-text=""></div>
+            <button @click="getToken()" class="getTokenBtn">getToken</button>
+            <!-- <div class="displayToken" x-text=""></div> -->
         </div>
 
         <div x-show="isAuthenticated">
@@ -109,6 +109,8 @@
                 <div class="add button mt1 ">
                     <button class="addGarmentTabBtn" @click="addTab()">Add garmet </button>
                 </div>
+
+                <div x-text="feedback" class="feedback"></div>
 
                 <div class="add garment" :class="{'hidden': !isOpen}">
                     <h2>Add garment</h2>

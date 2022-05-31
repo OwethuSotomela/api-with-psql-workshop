@@ -13,6 +13,12 @@ document.addEventListener("alpine:init", () => {
             authError: null,
             authErrorShow: false,
             error: null,
+
+            // Again 
+            feedback: '',
+            empty: 'Enter a garment to be added on the database',
+            success: 'Garment successfully added',
+            // Here 
             userSelection: null,
             isOpen: false,
             genderFilter: '',
@@ -155,14 +161,15 @@ document.addEventListener("alpine:init", () => {
                         this.item.price == 0 ||
                         this.item.season == ""
                     ) {
-                        alert('Enter a garment')
+                        // alert('Enter a garment')
+                        this.feedback = this.empty
                         // this.error('Add something')
                     } else {
                         axios
                             .post('/api/garment', myItems)
                             .then(() => this.getAllGarments())
-                            .catch(error => new Error(error.message))
-                        alert('Do you reach this side')
+                            this.feedback = this.success
+                            // .catch(error => new Error(error.message))
                     }
 
                 } catch {
