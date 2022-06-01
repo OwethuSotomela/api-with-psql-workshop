@@ -1,7 +1,7 @@
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: #8CBDB9;
-
+  height: 5em;
 }
 
 .login {
@@ -20,7 +20,6 @@ h1 {
   font-weight: bold;
   font-style: oblique;
   text-align: center;
-  margin-top: 2em;
 }
 
 .container {
@@ -30,6 +29,7 @@ h1 {
 
 .missyTeeApp {
   text-align: center;
+  height: 50%;
 }
 
 .filter {
@@ -70,7 +70,6 @@ img {
   margin: 0.25em;
   border-radius: 0.5em;
   box-shadow: 0 20px 25px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
-
 }
 
 .hidden {
@@ -114,8 +113,8 @@ img {
 }
 
 .mt1 {
-  margin-top: 1em;
-}
+  margin-top: 1em; 
+} 
 
 .message {
   margin-top: 1em;
@@ -195,7 +194,7 @@ input {
 }
 
 .logoutBtn {
-  background-color: red;
+  background-color: brown;
   border-radius: 12px;
   color: white;
   padding: 9px 15px;
@@ -203,35 +202,18 @@ input {
   align-items: center;
   text-decoration: none;
   display: inline-block;
-  margin-top: 5vh;
 }
 
 .deleteBtn {
   background-color: red;
   color: white;
   border-radius: 12px;
-  padding: 9px 15px;
+  padding: 8px 14px;
   text-align: center;
   align-items: center;
   text-decoration: none;
   display: inline-block;
-  margin-top: 5vh;
   font-size: large;
-}
-
-#snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  bottom: 30px;
 }
 
 @-webkit-keyframes fadein {
