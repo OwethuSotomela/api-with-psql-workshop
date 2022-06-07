@@ -75,12 +75,12 @@ document.addEventListener("alpine:init", () => {
                         .then((myData) => {
                             console.log(myData.data)
                             var { access_token } = myData.data;
+                            console.log(access_token)
                             this.parseJwt()
-                            this.token = setTimeout(() => {
-                                JSON.stringify(this.parseJwt(access_token))
+                            this.token = JSON.stringify(this.parseJwt(access_token))
+                            setTimeout(() => {
+                                this.token = ''
                             }, 2000);
-
-                            // this.garments = JSON.stringify(this.parseJwt(access_token));
                             console.log(access_token);
                         })
                 } catch {
@@ -165,17 +165,18 @@ document.addEventListener("alpine:init", () => {
                         this.item.price == 0 ||
                         this.item.season == ""
                     ) {
-                        // this.feedback = this.empty
+                        this.feedback = this.empty
                         setTimeout(() => {
-                            this.feedback = this.empty
+                            this.feedback = ''
                         }, 2000)
                     } else {
                         axios
                             .post('/api/garment', myItems)
                             .then(() => this.getAllGarments())
+                        this.feedback = this.success
                         setTimeout(() => {
-                            this.feedback = this.success
-                        }, 2000)
+                            this.feedback = ''
+                        }, 3000)
                     }
 
                 } catch {
@@ -188,7 +189,7 @@ document.addEventListener("alpine:init", () => {
                         .then(myData => {
                             setTimeout(() => {
                                 this.garments = myData.data
-                            }, 2000)
+                            }, 3000)
                         })
                 } catch {
 
@@ -199,9 +200,10 @@ document.addEventListener("alpine:init", () => {
                     axios
                         .delete(`/api/garment/${myGarm.id}`)
                         .then(() => this.getAllGarments())
+                    this.feedback = this.removed
                     setTimeout(() => {
-                        this.feedback = this.removed
-                    }, 2000)
+                        this.feedback = ''
+                    }, 3000)
                 } catch {
 
                 }
@@ -209,9 +211,7 @@ document.addEventListener("alpine:init", () => {
 
             logout() {
                 console.log('Bye?')
-                setTimeout(() => {
-                    this.isAuthenticated = !this.isAuthenticated
-                }, 2000)
+                this.isAuthenticated = !this.isAuthenticated
             }
         };
 
